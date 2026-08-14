@@ -266,7 +266,12 @@ header.hero {
   margin-bottom: 16px;
 }
 
-.tag-list { display: flex; flex-wrap: wrap; gap: 10px; }
+.tag-list { 
+  display: flex; 
+  flex-wrap: wrap; 
+  gap: 10px; 
+  justify-content: center; /* Centra las etiquetas horizontalmente */
+}
 .tag-list li {
   font-family: var(--font-mono);
   font-size: 0.82rem;
@@ -494,4 +499,61 @@ header.hero {
   .hero__cursor { animation: none; }
   .ambient-bg::before, .ambient-bg::after { animation: none; }
   .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+@media (max-width: 680px) {
+  /* Ocultamos la cabecera tradicional de la tabla en móviles */
+  .ai-planner__table thead {
+    display: none;
+  }
+
+  /* Hacemos que la tabla y el tbody sean transparentes / sin contenedor visual */
+  .ai-planner__table, 
+  .ai-planner__table tbody, 
+  .ai-planner__table tr, 
+  .ai-planner__table td {
+    display: block;
+    width: 100%;
+    background: transparent; /* Quitamos el fondo general del tbody o tabla */
+    border: none;
+  }
+
+  /* Cada fila (tr) ahora es una card flotante independiente */
+  .ai-planner__table tr {
+    background: var(--color-bg-elevated); /* Fondo individual para cada card */
+    margin-bottom: 14px;                 /* Espacio separador entre tarjetas */
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Efecto flotante */
+    overflow: hidden;
+  }
+
+  /* Las celdas (td) se distribuyen dentro de su propia tarjeta */
+  .ai-planner__table td {
+    padding: 12px 16px;
+    text-align: left !important;
+  }
+
+  /* Destacamos el número de paso como el título de la card */
+  .ai-planner__table td:nth-child(1) {
+    font-family: var(--font-mono);
+    color: var(--color-accent);
+    font-weight: 600;
+    border-bottom: 1px solid var(--color-border);
+    background: var(--color-bg-elevated-2); /* Sutil contraste para la cabecera de la card */
+  }
+
+  /* Estilo para la descripción */
+  .ai-planner__table td:nth-child(2) {
+    padding: 14px 16px;
+  }
+
+  /* Estilo para el tiempo estimado al final de la card */
+  .ai-planner__table td:nth-child(3) {
+    color: var(--color-text-muted);
+    font-size: 0.85rem;
+    border-top: 1px dashed var(--color-border);
+    padding-top: 10px;
+    padding-bottom: 12px;
+  }
 }
