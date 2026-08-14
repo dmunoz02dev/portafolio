@@ -1,3 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
+/* ============ Tokens ============ */
+:root {
+  --color-bg: #0b1220;
+  --color-bg-elevated: #121a2b;
+  --color-bg-elevated-2: #172034;
+  --color-border: #223049;
+  --color-text: #e8ecf3;
+  --color-text-muted: #8b96ad;
+  --color-accent: #5eead4;
+  --color-accent-soft: rgba(94, 234, 212, 0.12);
+  --color-accent-2: #f5a623;
+
+  --font-display: 'Space Grotesk', 'Inter', sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+
+  --radius: 10px;
+  --max-width: 1080px;
+}
+
+/* ============ Reset & base ============ */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
 
 @import 'tailwindcss';
